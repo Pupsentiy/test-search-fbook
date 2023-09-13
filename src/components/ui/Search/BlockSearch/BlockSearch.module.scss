@@ -1,0 +1,32 @@
+.SearchBooks {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper_search{
+    position: relative;
+
+    .input{
+      width: var(--width-xl);
+      padding: var(--padding-m);
+      padding-right: 25px;
+      border-radius:var(--border-radius-m) ;
+      border:1px solid #000;
+      font: var(--font-m);
+    }
+
+    .button{
+      position: absolute;
+      top: 3px;
+      right: 6px;
+      background: none;
+      border:none;
+      svg{
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+}
