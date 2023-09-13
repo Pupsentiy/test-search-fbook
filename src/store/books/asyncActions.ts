@@ -12,13 +12,12 @@ string
     // const { searchValue } = params
     try {
       const response = await axios.get<Books>(
-          `https://www.googleapis.com/books/v1/volumes?q=${searchValue}`)
+        `https://www.googleapis.com/books/v1/volumes?q=${searchValue}`)
 
       if (!response.data) {
         throw new Error()
       }
       console.log(response.data)
-
       return response.data
     } catch (e) {
       console.error(e)

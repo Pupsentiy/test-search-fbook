@@ -18,3 +18,12 @@ input{
     outline: none;
   }
 }
+
+img{
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

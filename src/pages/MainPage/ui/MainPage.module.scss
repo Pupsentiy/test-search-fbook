@@ -1,3 +1,10 @@
 .MainPage {
+padding: 20px;
 
+  .wrapper_bookCard{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+  }
 }

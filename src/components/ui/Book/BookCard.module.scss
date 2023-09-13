@@ -1,0 +1,63 @@
+.BookCard {
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  padding: 10px 15px;
+ &:hover{
+   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+ }
+  .img{
+    width: 128px;
+    height: 180px;
+    box-shadow: 8px 8px 15px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .wrapper_info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    .categories{
+      color:var(--grey-400);
+      text-decoration: underline;
+      margin-top: 15px;
+    }
+
+    .title{
+      max-width: 200px;
+      p{
+        font-weight: 600 ;
+      }
+      margin-top: 5px;
+    }
+  .wrapper_author{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .author{
+      margin-right: 8px;
+      position: relative;
+      &:after{
+        content: ',';
+        position: absolute;
+        right: -5px;
+        bottom: 0;
+      }
+      &:last-child{
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+
+  }
+
+
+}

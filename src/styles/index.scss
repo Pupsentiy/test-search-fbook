@@ -6,7 +6,7 @@
   font-style:  normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../../src/assets/fonts/SB Sans Interface.woff2') format("woff2")
+  src: url('src/assets/fonts/SB Sans Interface.woff2') format("woff2")
 }
 
 html {
@@ -17,11 +17,11 @@ html {
 
 
 body {
-  font-family: 'SB Sans Interface', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: content-box;
   font: var(--font-m);
+  background: var(--body-bg-color);
 }
 
 .page-content{
