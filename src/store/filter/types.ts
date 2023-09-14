@@ -1,5 +1,5 @@
 export interface filterState {
   searchValue: string
-  categoryId: number
+  categoryId?: number
   sort: string
 }

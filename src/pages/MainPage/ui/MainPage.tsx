@@ -1,11 +1,11 @@
-import { memo, useEffect } from 'react'
-import { fetchBooksData } from '../../../store/books/asyncActions.ts'
+import { memo } from 'react'
 import styles from './MainPage.module.scss'
 import { cls } from 'utils/helpers'
 import { TotalBooks } from 'components/ui/TotalItems'
 import { getBooksData, getTotalBooks } from 'store/books/selectors'
-import { useAppDispatch, useAppSelector } from 'utils/hooks/useRedux'
+import { useAppSelector } from 'utils/hooks/useRedux'
 import { BookCard } from 'components/ui/Book/BookCard'
+import { Button } from 'components/common/Button'
 
 interface MainPageProps {
   className?: string
@@ -14,11 +14,9 @@ interface MainPageProps {
 const MainPage = memo(({ className }: MainPageProps) => {
   const totalBooks = useAppSelector(getTotalBooks)
   const data = useAppSelector(getBooksData)
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    void dispatch(fetchBooksData('js'))
-  }, [dispatch])
+
   console.log(data)
+
   return (
     <div className={cls([styles.MainPage, className])}>
         {Boolean(totalBooks) && <TotalBooks />}
@@ -28,6 +26,11 @@ const MainPage = memo(({ className }: MainPageProps) => {
                 <BookCard key={item.id} item={item}/>
             ))
         }
+      </div>
+      <div className={styles.wrapper_loadMore}>
+        <Button className={styles.loadMore}>
+          Load more
+        </Button>
       </div>
     </div>
   )

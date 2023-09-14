@@ -3,26 +3,39 @@
   --body-bg-color: #ffffff;
 
   // Colors
-    --grey-400: #b7b3b3;
-    --grey-500:#A6A6A6;
-  // fonts
+  --grey-400: #b7b3b3;
+  --grey-500:#A6A6A6;
+  --black-50:#242424;
+  --beige-100: #ccba97;
+  --beige-200: #edd6a6;
 
+  // fonts
+  // s
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family);
+
+  // m
   --font-size-m: 16px;
   --font-line-m: 24px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family);
+
+  // l
   --font-size-l: 24px;
   --font-line-l: 32px;
-  --font-l: var(--font-size-l) / var(--font-line-l);
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family);
+
+  // xl
   --font-size-xl: 32px;
   --font-line-xl: 40px;
-  --font-xl: var(--font-size-xl) / var(--font-line-xl);
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
 
   //input, select
   --width-m:200px;
   --width-xl:540px;
-
+  //padding
   --padding-m:6px;
-
+  //border
   --border-radius-m:4px;
 
 }

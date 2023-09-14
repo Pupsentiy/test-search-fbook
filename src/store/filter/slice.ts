@@ -5,7 +5,7 @@ const initialState: filterState = {
   searchValue: '',
   categoryId: 1,
   // currentPage: 1,
-  sort: ''
+  sort: 'relevance'
 }
 
 const filterSlice = createSlice({
@@ -18,10 +18,10 @@ const filterSlice = createSlice({
     setSearchValue (state, action: PayloadAction<string>) {
       state.searchValue = action.payload
     },
-    setSort (state, action: PayloadAction<any>) {
+    setSort (state, action: PayloadAction<string>) {
       state.sort = action.payload
     }
   }
 })
-export const { setSearchValue } = filterSlice.actions
+export const { setSearchValue, setSort } = filterSlice.actions
 export default filterSlice.reducer

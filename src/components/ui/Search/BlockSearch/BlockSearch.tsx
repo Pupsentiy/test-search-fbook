@@ -6,7 +6,7 @@ import { Button } from 'components/common/Button'
 import { Search } from 'components/common/icons'
 import { useAppDispatch, useAppSelector } from 'utils/hooks/useRedux'
 import { setSearchValue } from 'store/filter/slice.ts'
-import { getSearchValue } from 'store/filter/selectors'
+import { getSearchValue, getSort } from 'store/filter/selectors'
 import { fetchBooksData } from 'store/books/asyncActions'
 
 interface BlockSearchProps {
@@ -16,14 +16,15 @@ interface BlockSearchProps {
 export const BlockSearch = memo(({ className }: BlockSearchProps) => {
   const dispatch = useAppDispatch()
   const searchValue = useAppSelector(getSearchValue)
+  const sort = useAppSelector(getSort)
 
   const onChangeSearchValue = useCallback((value: string) => {
     dispatch(setSearchValue(value))
   }, [dispatch])
 
   const startSearch = useCallback(async () => {
-    await dispatch(fetchBooksData(searchValue))
-  }, [dispatch, searchValue])
+    await dispatch(fetchBooksData({ searchValue, sort }))
+  }, [dispatch, searchValue, sort])
 
   return (
         <div

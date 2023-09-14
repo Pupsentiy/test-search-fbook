@@ -7,7 +7,11 @@ export const Header = () => {
         <header
             className={styles.Header}
         >
-            <Text title={'Search for books'} className={styles.title}/>
+            <Text
+                title={'Search for books'}
+                size={'l'}
+                bold={true}
+                className={styles.title}/>
             <Search/>
         </header>
   )

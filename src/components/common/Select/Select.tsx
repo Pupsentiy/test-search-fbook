@@ -1,20 +1,39 @@
-import { forwardRef, type SelectHTMLAttributes } from 'react'
+import { type ChangeEvent, type SelectHTMLAttributes } from 'react'
 import { cls } from 'utils/helpers'
 import styles from './Select.module.scss'
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+
+type HTMLInputProps = Omit<
+SelectHTMLAttributes<HTMLSelectElement>,
+'value' | 'onChange'
+>
+interface SelectProps extends HTMLInputProps {
   className?: string
+  value?: string
+  onChange?: (value: string) => void
 }
 
-export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) => {
-  const { className, children, placeholder, ...otherProps } = props
+export const Select = (props: SelectProps) => {
+  const {
+    className,
+    children,
+    value,
+    onChange,
+    placeholder,
+    ...otherProps
+  } = props
+
+  const onChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(event.target.value)
+  }
 
   return (
       <select
-          ref={ref}
           className={cls([styles.Select, className])}
+          onChange={onChangeHandler}
+          value={value}
           {...otherProps}
       >
         {children}
       </select>
   )
-})
+}

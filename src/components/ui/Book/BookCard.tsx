@@ -22,7 +22,7 @@ export const BookCard = memo((props: BookProps) => {
             />
             <div className={styles.wrapper_info}>
                 <Text text={item?.volumeInfo?.categories?.[0]} className={styles.categories}/>
-                <Text text={item?.volumeInfo?.title} className={styles.title}/>
+                <Text text={item?.volumeInfo?.title} className={styles.title} bold={true}/>
                 <div className={styles.wrapper_author}>
                     {Boolean(item?.volumeInfo?.authors) &&
                         item?.volumeInfo?.authors?.map((author) => (

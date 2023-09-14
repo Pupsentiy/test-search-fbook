@@ -7,4 +7,32 @@ padding: 20px;
 	flex-wrap: wrap;
 	margin-top: 20px;
   }
+
+  .wrapper_loadMore{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+
+	.loadMore{
+	  font-size: 18px;
+	  max-width: 170px;
+	  width: 100%;
+	  padding: 10px 24px;
+	  height: 40px;
+	  line-height: 40px;
+	  -webkit-transition-duration: .25s;
+	  transition-duration: .25s;
+	  -webkit-transition-timing-function: ease;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  border: none;
+	  border-radius: var(--border-radius-m);
+	  background: var(--beige-200);
+	  &:hover{
+		background: var(--beige-100);
+	  }
+	}
+  }
 }
