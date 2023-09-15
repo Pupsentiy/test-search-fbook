@@ -1,11 +1,18 @@
-import { memo } from 'react'
+import { Fragment, memo } from 'react'
 import styles from './MainPage.module.scss'
 import { cls } from 'utils/helpers'
 import { TotalBooks } from 'components/ui/TotalItems'
-import { getBooksData, getTotalBooks } from 'store/books/selectors'
+import {
+  getBooksData,
+  getBooksError,
+  getBooksIsLoading,
+  getTotalBooks
+} from 'store/books/selectors'
 import { useAppSelector } from 'utils/hooks/useRedux'
 import { BookCard } from 'components/ui/Book/BookCard'
 import { Button } from 'components/common/Button'
+import { PageLoader } from 'components/ui/PageLoader'
+// import { Loader } from 'components/common/Loader/Loader'
 
 interface MainPageProps {
   className?: string
@@ -14,24 +21,36 @@ interface MainPageProps {
 const MainPage = memo(({ className }: MainPageProps) => {
   const totalBooks = useAppSelector(getTotalBooks)
   const data = useAppSelector(getBooksData)
+  const isLoading = useAppSelector(getBooksIsLoading)
+  const error = useAppSelector(getBooksError)
+  console.log(error)
 
-  console.log(data)
+  if (isLoading) {
+    return (
+        <PageLoader/>
+    )
+  }
 
   return (
     <div className={cls([styles.MainPage, className])}>
         {Boolean(totalBooks) && <TotalBooks />}
-      <div className={styles.wrapper_bookCard}>
-        {
-            Boolean(data) && data?.map((item) => (
-                <BookCard key={item.id} item={item}/>
-            ))
-        }
-      </div>
-      <div className={styles.wrapper_loadMore}>
-        <Button className={styles.loadMore}>
-          Load more
-        </Button>
-      </div>
+        { Boolean(data) &&
+      <Fragment>
+          <div className={styles.wrapper_bookCard}>
+              {
+                   data?.map((item) => (
+                         <BookCard key={item.etag} item={item}/>
+
+                   ))
+              }
+          </div>
+          <div className={styles.wrapper_loadMore}>
+              <Button className={styles.loadMore}>
+                  Load more
+              </Button>
+          </div>
+      </Fragment>
+}
     </div>
   )
 })

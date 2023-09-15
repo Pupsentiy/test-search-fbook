@@ -25,8 +25,9 @@ body {
   color: var(--black-50);
 }
 
-.page-content{
-  //min-height: 100vh;
-  //flex: 1;
-  //padding: 20px;
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  width: 100%;
 }

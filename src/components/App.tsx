@@ -1,10 +1,10 @@
-import { MainPage } from '../pages/MainPage'
+import { AppRouter } from 'routes/AppRouter'
 import { Header } from './ui/Header'
 const App = () => {
   return (
-    <main className='page-content'>
+    <main>
       <Header/>
-        <MainPage/>
+       <AppRouter/>
     </main>
   )
 }

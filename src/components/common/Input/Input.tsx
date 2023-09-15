@@ -3,13 +3,12 @@ import { cls } from 'utils/helpers'
 
 type HTMLInputProps = Omit<
 InputHTMLAttributes<HTMLInputElement>,
-'value' | 'onChange' | 'readOnly'
+'value' | 'onChange'
 >
 interface InputProps extends HTMLInputProps {
   className?: string
   value?: string
   onChange?: (value: string) => void
-  readonly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -18,7 +17,6 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     value,
     onChange,
-    readonly,
     ...otherProps
   } = props
 

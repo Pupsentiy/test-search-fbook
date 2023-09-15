@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { type filterState } from '../filter/types.ts'
 import { type Books } from './types.ts'
-// const apiKey = import.meta.env.VITE_API_KEY
+import { BASE_URL, MAX_RES } from 'utils/helpers/consts.ts'
+import { type filterState } from 'store/filter/types.ts'
+const apiKey = import.meta.env.VITE_API_KEY
 
 export const fetchBooksData = createAsyncThunk<
 Books,
@@ -10,10 +11,12 @@ filterState
 >(
   'books/fetchBooksData',
   async (params, thunkApi) => {
-    const { searchValue, sort } = params
+    const { searchValue, sort, category } = params
+
     try {
       const response = await axios.get<Books>(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&orderBy=${sort}`)
+`${BASE_URL}?q=
+${searchValue}+subject:${category}&orderBy=${sort}&maxResults=${MAX_RES}&key=${apiKey}`)
 
       if (!response.data) {
         throw new Error()

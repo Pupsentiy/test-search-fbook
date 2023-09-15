@@ -1,4 +1,4 @@
-import styles from './BookDetailsPage.module.scss'
+import styles from './NotFoundPage.module.scss'
 import { cls } from 'utils/helpers'
 
 interface NotFoundPageProps {

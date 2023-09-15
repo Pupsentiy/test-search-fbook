@@ -1,11 +1,11 @@
 export enum Categories {
-  'ALL' = 'all',
-  'ART' = 'art',
-  'BIOGRAPHY' = 'biography',
-  'COMPUTERS' = 'computers',
-  'HISTORY' = 'history',
-  'MEDICAL' = 'medical',
-  'POETRY' = 'poetry'
+  'ALL' = 'All',
+  'ART' = 'Art',
+  'BIOGRAPHY' = 'Biography',
+  'COMPUTERS' = 'Computers',
+  'HISTORY' = 'History',
+  'MEDICAL' = 'Medical',
+  'POETRY' = 'Poetry'
 }
 
 export enum Sort {
@@ -14,7 +14,7 @@ export enum Sort {
 }
 
 export const CategoriesOptions: Record<Categories, string> = {
-  [Categories.ALL]: 'All',
+  [Categories.ALL]: '',
   [Categories.ART]: 'Art',
   [Categories.BIOGRAPHY]: 'Biography',
   [Categories.COMPUTERS]: 'Computers',
@@ -27,3 +27,6 @@ export const SortOptions: Record<Sort, string> = {
   [Sort.RELEVANCE]: 'Relevance',
   [Sort.NEWEST]: 'Newest'
 }
+
+export const BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
+export const MAX_RES = 30
