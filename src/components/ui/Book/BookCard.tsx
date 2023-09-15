@@ -21,7 +21,7 @@ export const BookCard = memo((props: BookProps) => {
   const img = item?.volumeInfo?.imageLinks?.smallThumbnail
   const category = item?.volumeInfo?.categories?.[0]
   const title = item?.volumeInfo?.title
-  const author = item?.volumeInfo?.authors
+  const author = item?.volumeInfo?.authors?.join(', ')
 
   return (
         <Link
@@ -37,10 +37,7 @@ export const BookCard = memo((props: BookProps) => {
                 <Text text={category} className={styles.categories}/>
                 <Text text={title} className={styles.title} bold={true}/>
                 <div className={styles.wrapper_author}>
-                    {Boolean(author) &&
-                        author?.map((author) => (
                             <Text key={author} text={author} className={styles.author}/>
-                        ))}
                 </div>
             </div>
         </Link>

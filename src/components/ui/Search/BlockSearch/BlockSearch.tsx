@@ -6,7 +6,7 @@ import { Input } from 'components/common/Input'
 import { Button } from 'components/common/Button'
 import { Search } from 'components/common/icons'
 import { useAppDispatch, useAppSelector } from 'utils/hooks/useRedux'
-import { setSearchValue } from 'store/filter/slice.ts'
+import { setCurrentSearch, setSearchValue } from 'store/filter/slice.ts'
 import { getCategory, getSearchValue, getSort } from 'store/filter/selectors'
 import { fetchBooksData } from 'store/books/asyncActions'
 
@@ -28,13 +28,15 @@ export const BlockSearch = memo(({ className }: BlockSearchProps) => {
   const startSearch = useCallback(async () => {
     if (!searchValue) return
     await dispatch(fetchBooksData({ searchValue, sort, category }))
+    dispatch(setCurrentSearch(searchValue))
     navigate('/')
   }, [dispatch, searchValue, sort, category, navigate])
 
-  const startSearchByEnter = useCallback(async (event: any) => {
+  const startSearchByEnter = useCallback(async (key: string) => {
     if (!searchValue) return
-    if (event.key === 'Enter') {
+    if (key === 'Enter') {
       await dispatch(fetchBooksData({ searchValue, sort, category }))
+      dispatch(setCurrentSearch(searchValue))
       navigate('/')
     }
   }, [dispatch, searchValue, sort, category, navigate])
@@ -48,7 +50,7 @@ export const BlockSearch = memo(({ className }: BlockSearchProps) => {
                   placeholder={'Search...'}
                   className={styles.input}
                   onChange={onChangeSearchValue}
-                  onKeyDown={startSearchByEnter}
+                  onKeyUp={startSearchByEnter}
                   value={searchValue}/>
               <Button className={styles.button} onClick={startSearch}><Search/></Button>
           </div>

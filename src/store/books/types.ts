@@ -1,7 +1,18 @@
 export interface BooksSchema {
   data?: Books | undefined
   isLoading: boolean
-  error?: string
+  error?: string | unknown
+}
+
+export interface fetchBooksDataType {
+  searchValue: string
+  category: string
+  sort: string
+}
+
+export interface fetchLoadMoreDataType {
+  searchValue: string
+  currentPage: number
 }
 
 export interface Books {

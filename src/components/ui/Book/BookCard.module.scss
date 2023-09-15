@@ -1,24 +1,64 @@
 .BookCard {
-  width: 18%;
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
   z-index: 2;
   padding: 10px 15px;
- &:hover{
-   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
- }
+  border-radius: var(--border-radius-m);
+
+  @media (max-width: 1200px) {
+    width: 25%;
+  }
+  @media (max-width: 992px) {
+    width: 33%;
+  }
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+
+  &:hover{
+    -webkit-box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+    -webkit-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-property: all;
+  }
   .img{
     width: 128px;
     height: 180px;
+    -webkit-box-shadow: 8px 8px 15px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 8px 8px 15px 2px rgba(0, 0, 0, 0.2);
   }
 
   .wrapper_info{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     width: 100%;
     .categories{
@@ -31,28 +71,23 @@
       max-width: 200px;
       margin-top: 5px;
     }
-  .wrapper_author{
-    margin-top: 5px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    .author{
-      margin-right: 8px;
-      position: relative;
-      &:after{
-        content: ',';
-        position: absolute;
-        right: -5px;
-        bottom: 0;
-      }
-      &:last-child{
-        &:after{
-          display: none;
-        }
+    .wrapper_author{
+      margin-top: 5px;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      .author{
+        margin-right: 8px;
+        position: relative;
       }
     }
-  }
 
   }
 

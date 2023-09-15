@@ -1,7 +1,13 @@
 .SearchBooks {
   margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   .wrapper_search{
@@ -14,6 +20,18 @@
       border-radius:var(--border-radius-m) ;
       border:1px solid #000;
       font: var(--font-m);
+      @media (max-width: 768px) {
+        width: var(--width-l);
+      }
+      @media (max-width: 576px) {
+        width: var(--width-s);
+      }
+      @media (max-width: 576px) {
+        width: var(--width-s);
+      }
+      @media (max-width: 375px) {
+        width: var(--width-sm);
+      }
     }
 
     .button{
@@ -22,9 +40,21 @@
       right: 6px;
       background: none;
       border:none;
+      -webkit-transition-duration: 0.25s;
+      -o-transition-duration: 0.25s;
+      transition-duration: 0.25s;
+      -webkit-transition-timing-function: ease;
+      -o-transition-timing-function: ease;
+      transition-timing-function: ease;
+      -webkit-transition-property: all;
       svg{
         width: 24px;
         height: 24px;
+
+      }
+      &:hover{
+        fill: var(--beige-100);
+        scale: 1.1;
       }
     }
   }

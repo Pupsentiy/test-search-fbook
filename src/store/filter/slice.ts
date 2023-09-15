@@ -4,7 +4,9 @@ import { type filterState } from './types.ts'
 const initialState: filterState = {
   searchValue: '',
   category: '',
-  sort: 'relevance'
+  sort: 'relevance',
+  currentSearch: '',
+  currentPage: 0
 }
 
 const filterSlice = createSlice({
@@ -19,8 +21,21 @@ const filterSlice = createSlice({
     },
     setSort (state, action: PayloadAction<string>) {
       state.sort = action.payload
+    },
+    setCurrentSearch (state, action: PayloadAction<string>) {
+      state.currentSearch = action.payload
+    },
+    setCurrentPage (state) {
+      state.currentPage += 1
     }
+
   }
 })
-export const { setSearchValue, setSort, setCategory } = filterSlice.actions
+export const {
+  setSearchValue,
+  setSort,
+  setCategory,
+  setCurrentSearch,
+  setCurrentPage
+} = filterSlice.actions
 export default filterSlice.reducer
