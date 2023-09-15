@@ -4,7 +4,6 @@ import { BookCard } from 'components/ui/Book/BookCard'
 import { PageLoader } from 'components/ui/PageLoader'
 import { TotalBooks } from 'components/ui/TotalItems'
 import { Fragment, memo, useCallback, useMemo } from 'react'
-// import { useNavigate } from 'react-router-dom'
 import {
   getBooksData,
   getBooksError,
@@ -22,8 +21,6 @@ import {
 import styles from './MainPage.module.scss'
 import { setCurrentPage } from 'store/filter/slice'
 
-// import { Loader } from 'components/common/Loader/Loader'
-
 interface MainPageProps {
   className?: string
 }
@@ -37,8 +34,6 @@ const MainPage = memo(({ className }: MainPageProps) => {
   const searchValue = useAppSelector(getSearchValue)
   const currentSearch = useAppSelector(getCurrentSearch)
   const currentPage = useAppSelector(getCurrentPage)
-  console.log(data)
-  console.log(error)
 
   const onClickLoadMore = useCallback(async () => {
     dispatch(setCurrentPage())

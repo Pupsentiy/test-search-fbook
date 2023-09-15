@@ -1,5 +1,4 @@
 import { type ButtonHTMLAttributes, type ReactNode } from 'react'
-
 import styles from './Button.module.scss'
 import { cls } from 'utils/helpers'
 

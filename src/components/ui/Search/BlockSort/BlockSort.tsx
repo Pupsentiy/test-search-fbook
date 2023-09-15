@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react'
-import { Text } from '../../../common/Text'
+import { Text } from 'components/common/Text'
 import { cls } from 'utils/helpers'
 import { Select } from 'components/common/Select'
 import { SortOptions } from 'utils/helpers/consts'
